@@ -1,0 +1,10 @@
+{
+  "name": "ai-code-review-assist",
+  "version": "0.1.0",
+  "description": "AI-powered code review assistant using Gemini API",
+  "commands": {
+    "dev": "python app.py",
+    "start": "python app.py"
+  },
+  "agents": []
+}
