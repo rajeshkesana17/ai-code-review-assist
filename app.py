@@ -4,6 +4,8 @@ from gemini_service import gemini_service
 
 app = Flask(__name__)
 
+MAX_CODE_LENGTH = int(os.getenv('MAX_CODE_LENGTH', '30000'))
+
 @app.get('/')
 def index():
     return render_template('index.html')
@@ -14,8 +16,12 @@ def analyze():
     code = str(data.get('code', '')).strip()
     language = str(data.get('language', 'Auto-detect')).strip() or 'Auto-detect'
     explanation_language = str(data.get('explanation_language', 'English')).strip() or 'English'
+
     if not code:
         return jsonify({'error': 'No code provided.'}), 400
+    if len(code) > MAX_CODE_LENGTH:
+        return jsonify({'error': f'Code is too large. Maximum supported size is {MAX_CODE_LENGTH} characters.'}), 413
+
     result = gemini_service.analyze_code(code, language, explanation_language)
     return jsonify(result), 200 if 'error' not in result else 502
 
