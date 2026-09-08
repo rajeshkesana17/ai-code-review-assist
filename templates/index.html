@@ -9,9 +9,10 @@
 <body>
 <header class="topbar"><div class="brand"><span class="brand-mark">&lt;/&gt;</span><span>CodeLens</span></div><span class="status"><span class="dot"></span> Gemini-powered review</span></header>
 <main class="shell">
-<section class="hero"><div class="eyebrow">AI CODE REVIEW ASSIST</div><h1>Find bugs. Fix faster.<br><span>Write better code.</span></h1><p>Paste your code and get a quality score, actionable issues, and an optimized refactor in seconds.</p></section>
+<section class="hero"><div class="eyebrow">AI CODE REVIEW ASSIST</div><h1>Find bugs. Fix faster.<br><span>Write better code.</span></h1><p>Choose a language, paste your code, and get a quality score, actionable issues, fixes, and an optimized refactor.</p></section>
 <section class="workspace">
 <div class="panel editor-panel"><div class="panel-head"><div><span class="panel-title">Your code</span><span id="lineCount" class="muted">0 lines</span></div><button id="clearBtn" class="ghost" type="button">Clear</button></div>
+<div class="language-row"><label for="languageSelect">Language</label><select id="languageSelect"><option>Auto-detect</option><option>Python</option><option>Java</option><option>C</option><option>C++</option><option>C#</option><option>JavaScript</option><option>TypeScript</option><option>HTML</option><option>CSS</option><option>SQL</option><option>PHP</option><option>Go</option><option>Rust</option><option>Kotlin</option><option>Swift</option><option>Ruby</option><option>Dart</option><option>R</option><option>Scala</option><option>Bash</option><option>PowerShell</option><option>Lua</option><option>Perl</option><option>Julia</option></select></div>
 <div class="editor-wrap"><div id="lineNumbers" class="line-numbers">1</div><textarea id="codeInput" spellcheck="false" placeholder="Paste source code here...">def find_duplicates(items):
     duplicates = []
     for item in items:
