@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CodeLens — AI Code Review</title>
+<meta name="description" content="Find bugs faster and get efficient, production-ready code with AI.">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="topbar"><div class="brand"><span class="brand-mark">&lt;/&gt;</span><span>CodeLens</span></div><span class="status"><span class="dot"></span> Gemini-powered review</span></header>
+<main class="shell">
+<section class="hero"><div class="eyebrow">AI CODE REVIEW ASSIST</div><h1>Find bugs. Fix faster.<br><span>Write better code.</span></h1><p>Paste your code and get a quality score, actionable issues, and an optimized refactor in seconds.</p></section>
+<section class="workspace">
+<div class="panel editor-panel"><div class="panel-head"><div><span class="panel-title">Your code</span><span id="lineCount" class="muted">0 lines</span></div><button id="clearBtn" class="ghost" type="button">Clear</button></div>
+<div class="editor-wrap"><div id="lineNumbers" class="line-numbers">1</div><textarea id="codeInput" spellcheck="false" placeholder="Paste source code here...">def find_duplicates(items):
+    duplicates = []
+    for item in items:
+        if items.count(item) > 1 and item not in duplicates:
+            duplicates.append(item)
+    return duplicates</textarea></div>
+<div class="editor-foot"><span>Checks bugs, security, performance &amp; code quality</span><button id="analyzeBtn" class="primary" type="button">✦ Analyze code</button></div></div>
+<div class="panel results-panel"><div class="panel-head"><div><span class="panel-title">Review</span><span id="reviewState" class="muted">Ready</span></div></div>
+<div id="emptyState" class="empty"><div class="empty-icon">⌘</div><h2>Your review will appear here</h2><p>Run an analysis to see your score, issues, fixes, and optimized code.</p></div>
+<div id="loading" class="empty hidden"><div class="spinner"></div><h2>Analyzing your code…</h2><p>Checking correctness, security, performance and maintainability.</p></div>
+<div id="results" class="hidden"><div class="score-card"><div><span class="muted">Code quality</span><strong id="score">—</strong></div><div class="score-track"><div id="scoreBar"></div></div><p id="summary"></p></div><div class="section-title">Issues &amp; recommendations <span id="issueCount">0</span></div><div id="issues" class="issues"></div><div class="section-title">Optimized code <button id="copyBtn" class="ghost" type="button">Copy</button></div><pre id="refactored"></pre></div>
+<div id="errorState" class="error hidden"></div></div>
+</section></main><footer>CodeLens · AI Code Review Assist</footer>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body></html>
