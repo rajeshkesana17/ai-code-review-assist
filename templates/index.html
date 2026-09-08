@@ -13,12 +13,7 @@
 <section class="workspace">
 <div class="panel editor-panel"><div class="panel-head"><div><span class="panel-title">Your code</span><span id="lineCount" class="muted">0 lines</span></div><button id="clearBtn" class="ghost" type="button">Clear</button></div>
 <div class="language-row"><label for="languageSelect">Language</label><select id="languageSelect"><option>Auto-detect</option><option>Python</option><option>Java</option><option>C</option><option>C++</option><option>C#</option><option>JavaScript</option><option>TypeScript</option><option>HTML</option><option>CSS</option><option>SQL</option><option>PHP</option><option>Go</option><option>Rust</option><option>Kotlin</option><option>Swift</option><option>Ruby</option><option>Dart</option><option>R</option><option>Scala</option><option>Bash</option><option>PowerShell</option><option>Lua</option><option>Perl</option><option>Julia</option></select></div>
-<div class="editor-wrap"><div id="lineNumbers" class="line-numbers">1</div><textarea id="codeInput" spellcheck="false" placeholder="Paste source code here...">def find_duplicates(items):
-    duplicates = []
-    for item in items:
-        if items.count(item) > 1 and item not in duplicates:
-            duplicates.append(item)
-    return duplicates</textarea></div>
+<div class="editor-wrap"><div id="codeEditor" aria-label="Source code editor"></div></div>
 <div class="editor-foot"><span>Checks bugs, security, performance &amp; code quality</span><button id="analyzeBtn" class="primary" type="button">✦ Analyze code</button></div></div>
 <div class="panel results-panel"><div class="panel-head"><div><span class="panel-title">Review</span><span id="reviewState" class="muted">Ready</span></div></div>
 <div id="emptyState" class="empty"><div class="empty-icon">⌘</div><h2>Your review will appear here</h2><p>Run an analysis to see your score, issues, fixes, and optimized code.</p></div>
@@ -26,5 +21,6 @@
 <div id="results" class="hidden"><div class="score-card"><div><span class="muted">Code quality</span><strong id="score">—</strong></div><div class="score-track"><div id="scoreBar"></div></div><p id="summary"></p></div><div class="section-title">Issues &amp; recommendations <span id="issueCount">0</span></div><div id="issues" class="issues"></div><div class="section-title">Optimized code <button id="copyBtn" class="ghost" type="button">Copy</button></div><pre id="refactored"></pre></div>
 <div id="errorState" class="error hidden"></div></div>
 </section></main><footer>CodeLens · AI Code Review Assist</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body></html>
