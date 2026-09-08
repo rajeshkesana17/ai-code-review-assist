@@ -12,9 +12,10 @@ def index():
 def analyze():
     data = request.get_json(silent=True) or {}
     code = str(data.get('code', '')).strip()
+    language = str(data.get('language', 'Auto-detect')).strip() or 'Auto-detect'
     if not code:
         return jsonify({'error': 'No code provided.'}), 400
-    result = gemini_service.analyze_code(code)
+    result = gemini_service.analyze_code(code, language)
     return jsonify(result), 200 if 'error' not in result else 502
 
 if __name__ == '__main__':
